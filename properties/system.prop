@@ -18,6 +18,7 @@ vendor.post_boot.parsed=1s
 debug.sf.disable_backpressure=1
 debug.sf.enable_hwc_vds=1
 ro.surface_flinger.supports_background_blur=1
+ro.sf.blurs_are_expensive=1
 
 # IMS
 persist.dbg.volte_avail_ovr=1
