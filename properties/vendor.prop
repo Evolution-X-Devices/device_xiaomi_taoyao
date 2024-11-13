@@ -231,6 +231,7 @@ vendor.display.enable_camera_smooth=1
 vendor.display.enable_allow_idle_fallback=1
 vendor.display.disable_idle_time_video=1
 vendor.display.disable_idle_time_hdr=1
+ro.surface_flinger.game_default_frame_rate_override=120
 
 # LMK
 ro.config.low_ram=false
