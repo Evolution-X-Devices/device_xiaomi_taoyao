@@ -225,6 +225,9 @@ vendor.display.use_layer_ext=0
 vendor.display.use_smooth_motion=0
 vendor.gralloc.disable_ubwc=0
 
+# LMK
+ro.config.low_ram=false
+
 # Logs
 persist.log.tag.OpenGLRenderer=S
 
