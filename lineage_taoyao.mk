@@ -14,6 +14,7 @@ TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_HAS_UDFPS := true
 TARGET_INCLUDE_ACCORD := false
 TARGET_DISABLE_EPPE := true
+TARGET_BUILD_APERTURE_CAMERA := false
 WITH_GMS := true
 
 # Device identifier. This must come after all inclusions.
@@ -29,9 +30,9 @@ SystemName := taoyao_global
 SystemDevice := taoyao
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="taoyao_global-user 14 UKQ1.231003.002 V816.0.26.0.ULIMIXM release-keys" \
+    BuildDesc="taoyao_global-user 14 UKQ1.231003.002 V816.0.27.0.ULIMIXM release-keys" \
     DeviceName=$(SystemDevice) \
     DeviceProduct=$(SystemName)
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := Xiaomi/taoyao_global/taoyao:14/UKQ1.231003.002/V816.0.26.0.ULIMIXM:user/release-keys
+BUILD_FINGERPRINT := Xiaomi/taoyao_global/taoyao:14/UKQ1.231003.002/V816.0.27.0.ULIMIXM:user/release-keys
