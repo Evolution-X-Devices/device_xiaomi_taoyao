@@ -15,7 +15,6 @@ TARGET_HAS_UDFPS := true
 TARGET_INCLUDE_ACCORD := false
 TARGET_DISABLE_EPPE := true
 TARGET_BUILD_APERTURE_CAMERA := false
-WITH_GMS := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_taoyao

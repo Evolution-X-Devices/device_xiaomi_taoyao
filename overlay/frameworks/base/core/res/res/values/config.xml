@@ -126,11 +126,6 @@
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
     <bool name="config_automatic_brightness_available">true</bool>
 
-    <!-- Flag indicating whether the device supports hardware-based auto brightness adjustment.
-         When true, the auto brightness adjustment will use the hardware implementation, 
-         typically relying on the ambient light sensor for optimal brightness control -->
-    <bool name="config_hardware_auto_brightness_available">true</bool>
-
     <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
          on the headphone/microphone jack. When false use the older uevent framework. -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
