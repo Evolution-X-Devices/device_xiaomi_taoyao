@@ -4,6 +4,16 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+cc_library {
+    name: "libmisightjson_shim",
+    srcs: [
+        "json_value.cpp",
+    ],
+	shared_libs: ["libjsoncpp"],
+    compile_multilib: "both",
+    vendor: true,
+}
+
 cc_library_shared {
     name: "dolbycodec_shim",
     srcs: ["dolbycodec_shim.cpp"],
