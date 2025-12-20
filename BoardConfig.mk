@@ -52,9 +52,6 @@ BOARD_VENDOR := xiaomi
 TARGET_BOOTLOADER_BOARD_NAME := taoyao
 TARGET_NO_BOOTLOADER := true
 
-# Camera
-TARGET_CAMERA_SERVICE_EXT_LIB := //$(DEVICE_PATH):libcameraservice_extension.xiaomi
-
 # Display
 TARGET_SCREEN_DENSITY ?= 440
 
