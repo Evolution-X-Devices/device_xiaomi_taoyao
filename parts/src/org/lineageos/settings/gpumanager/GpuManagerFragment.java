@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 import org.lineageos.settings.R;
 
 public class GpuManagerFragment extends PreferenceFragment
@@ -50,11 +50,11 @@ public class GpuManagerFragment extends PreferenceFragment
     private Preference mGpuBusyPreference;
     private Preference mGpuTemperaturePreference;
     private Preference mThermalPowerLevelPreference;
-    private SwitchPreference mForceClkOnPreference;
-    private SwitchPreference mForceBusOnPreference;
-    private SwitchPreference mForceRailOnPreference;
-    private SwitchPreference mForceNoNapPreference;
-    private SwitchPreference mBusSplitPreference;
+    private SwitchPreferenceCompat mForceClkOnPreference;
+    private SwitchPreferenceCompat mForceBusOnPreference;
+    private SwitchPreferenceCompat mForceRailOnPreference;
+    private SwitchPreferenceCompat mForceNoNapPreference;
+    private SwitchPreferenceCompat mBusSplitPreference;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -82,11 +82,11 @@ public class GpuManagerFragment extends PreferenceFragment
         mGpuBusyPreference = findPreference(KEY_GPU_BUSY_PERCENTAGE);
         mGpuTemperaturePreference = findPreference(KEY_GPU_TEMPERATURE);
         mThermalPowerLevelPreference = findPreference(KEY_GPU_THERMAL_PWRLEVEL);
-        mForceClkOnPreference = (SwitchPreference) findPreference(KEY_GPU_FORCE_CLK_ON);
-        mForceBusOnPreference = (SwitchPreference) findPreference(KEY_GPU_FORCE_BUS_ON);
-        mForceRailOnPreference = (SwitchPreference) findPreference(KEY_GPU_FORCE_RAIL_ON);
-        mForceNoNapPreference = (SwitchPreference) findPreference(KEY_GPU_FORCE_NO_NAP);
-        mBusSplitPreference = (SwitchPreference) findPreference(KEY_GPU_BUS_SPLIT);
+        mForceClkOnPreference = (SwitchPreferenceCompat) findPreference(KEY_GPU_FORCE_CLK_ON);
+        mForceBusOnPreference = (SwitchPreferenceCompat) findPreference(KEY_GPU_FORCE_BUS_ON);
+        mForceRailOnPreference = (SwitchPreferenceCompat) findPreference(KEY_GPU_FORCE_RAIL_ON);
+        mForceNoNapPreference = (SwitchPreferenceCompat) findPreference(KEY_GPU_FORCE_NO_NAP);
+        mBusSplitPreference = (SwitchPreferenceCompat) findPreference(KEY_GPU_BUS_SPLIT);
         
         // Set listeners
         if (mGovernorPreference != null) {
