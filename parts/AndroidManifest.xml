@@ -118,7 +118,6 @@
         <activity
             android:name=".touchsampling.TouchSamplingSettingsActivity"
             android:label="@string/htsr_enable_title"
-            android:theme="@style/Theme.SubSettingsBase.Expressive"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
@@ -202,8 +201,7 @@
         <activity
             android:name=".display.DcDimmingSettingsActivity"
             android:label="@string/dc_dimming_enable_title"
-            android:exported="true"
-            android:theme="@style/Theme.SubSettingsBase.Expressive">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -217,8 +215,7 @@
         <activity
             android:name=".hbm.HBMActivity"
             android:label="@string/hbm_fragment_title"
-            android:exported="false"
-            android:theme="@style/Theme.SubSettingsBase.Expressive">
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
