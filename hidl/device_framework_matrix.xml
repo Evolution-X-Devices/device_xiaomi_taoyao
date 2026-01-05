@@ -34,6 +34,15 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.diaghal</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>Idiag</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
     <!-- Display -->
     <hal format="aidl" optional="true">
         <name>vendor.lineage.livedisplay</name>
