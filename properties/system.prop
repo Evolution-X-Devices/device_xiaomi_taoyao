@@ -25,7 +25,8 @@ vendor.post_boot.parsed=1s
 
 # Graphics
 debug.sf.disable_backpressure=1
-debug.sf.enable_hwc_vds=1
+debug.sf.enable_hwc_vds=0
+media.wfd.max_resolution=8
 ro.surface_flinger.supports_background_blur=1
 ro.sf.blurs_are_expensive=1
 ro.surface_flinger.support_kernel_idle_timer=true

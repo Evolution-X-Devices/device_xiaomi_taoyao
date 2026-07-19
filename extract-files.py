@@ -39,7 +39,6 @@ lib_fixups: lib_fixups_user_type = {
         'com.qualcomm.qti.dpm.api@1.0',
         'libmmosal',
         'vendor.qti.diaghal@1.0',
-        'vendor.qti.hardware.wifidisplaysession@1.0',
         'vendor.qti.imsrtpservice@3.0',
         'vendor.xiaomi.hardware.misys@1.0',
         'vendor.xiaomi.hardware.misys@2.0',
@@ -50,23 +49,6 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-    'system_ext/bin/wfdservice64': blob_fixup()
-        .add_needed('libwfdservice_shim.so'),
-    'system_ext/etc/init/wfdservice.rc': blob_fixup()
-        .regex_replace(r'(start|stop) wfdservice\b', r'\1 wfdservice64'),
-    'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
-        .add_needed('libgui_shim.so'),
-    'system_ext/lib/libwfdservice.so': blob_fixup()
-        .add_needed('libaudioclient_shim.so')
-        .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
-    'system_ext/lib64/libwfdservice.so': blob_fixup()
-        .add_needed('wfdservice_shim.so')
-        .add_needed('libaudioclient_shim.so')
-        .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
-    'system_ext/lib64/libwfdnative.so': blob_fixup()
-        .remove_needed('android.hidl.base@1.0.so')
-        .add_needed('libbinder_shim.so')
-        .add_needed('libinput_shim.so'),
     'vendor/etc/init/vendor.xiaomi.hardware.citsensorservice@1.1-service.rc': blob_fixup()
         .add_line_if_missing('    task_profiles ServiceCapacityLow'),
     'vendor/lib64/hw/vendor.xiaomi.hardware.citsensorservice@1.1-impl.so': blob_fixup()
