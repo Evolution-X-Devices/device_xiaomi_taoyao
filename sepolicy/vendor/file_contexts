@@ -32,9 +32,6 @@
 /vendor/lib(64)?/vendor\.qti\.hardware\.display\.allocator@.*             u:object_r:vendor_camera_libs:s0
 /vendor/lib(64)?/vendor\.qti\.hardware\.vpp@.*                            u:object_r:vendor_camera_libs:s0
 
-# Core Control
-/sys/devices/system/cpu/cpu[0-7]/online					       u:object_r:vendor_sysfs_corecontrol:s0
-
 # Dolby
 /data/vendor/dolby(/.*)?                                                                            u:object_r:vendor_data_file:s0
 /(odm|vendor/odm)/bin/hw/vendor\.dolby_v3_6\.hardware\.dms360@2\.0-service                          u:object_r:hal_dms_default_exec:s0
@@ -59,9 +56,6 @@
 /sys/devices/virtual/touch/touch_dev/fod_press_status                     u:object_r:vendor_sysfs_udfps:s0
 /sys/devices/virtual/touch/tp_dev/fod_status                              u:object_r:vendor_sysfs_udfps:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
-
-# HTSR
-/sys/devices/virtual/touch/touch_dev/bump_sample_rate	 u:object_r:sysfs_htsr:s0
 
 # Mlipay
 /vendor/bin/mlipayd@1.1                                                   u:object_r:hal_mlipay_default_exec:s0
