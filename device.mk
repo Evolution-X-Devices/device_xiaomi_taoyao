@@ -165,7 +165,7 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 PRODUCT_PACKAGES += \
     DSPVolumeSynchronizer \
     XiaomiDolby \
-    XiaomiDolbyResCommon \
+    XiaomiDolbyResTaoyao \
     XiaomiParts
 
 # Display
@@ -367,16 +367,24 @@ PRODUCT_COPY_FILES += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
-    NfcOverlay \
-    NcmTetheringOverlay \
-    SettingsProviderOverlay \
-    DeviceAsWebcamOverlaySM8350
+    CarrierConfigOverlayTaoyao \
+    SettingsProviderOverlayTaoyao \
+    TelephonyOverlayTaoyao
+
+PRODUCT_PACKAGES += \
+    FrameworkOverlayTaoyao \
+    SettingsOverlayTaoyao \
+    SystemUIOverlayTaoyao \
+    WifiOverlayTaoyao \
+    DeviceAsWebcamOverlayTaoyao
+
+PRODUCT_PACKAGES += \
+    NcmTetheringOverlay
 
 # Partitions
 PRODUCT_PACKAGES += \
@@ -413,10 +421,6 @@ PRODUCT_COPY_FILES += \
 # QTI fwk-detect
 PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti.vendor # Needed by CNE app
-
-# RIL
-PRODUCT_PACKAGES += \
-    CarrierConfigOverlay
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -538,7 +542,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
     libwifi-hal-qcom \
-    WifiOverlay \
     wpa_cli \
     wpa_supplicant \
     wpa_supplicant.conf
