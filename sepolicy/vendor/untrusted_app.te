@@ -17,5 +17,3 @@ allowxperm untrusted_app apk_data_file:file ioctl {
   FS_IOC_SETFLAGS
   FS_IOC_GETFLAGS
 };
-
-allow untrusted_app userdebug_or_eng_prop:file rw_file_perms;
