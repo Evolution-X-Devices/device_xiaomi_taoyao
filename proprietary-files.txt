@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from taoyao V816.0.27.0.ULIMIXM
+# All unpinned blobs below are extracted from taoyao V816.0.39.0.ULIEUXM
 
 # ACDB
 vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
@@ -1148,18 +1148,6 @@ vendor/lib/libqcodec2_platform.so
 vendor/lib/libqcodec2_utils.so
 vendor/lib/libqcodec2_v4l2codec.so
 vendor/lib64/libmmosal.so;MODULE_SUFFIX=_vendor
-
-# Media (Hardware)
-vendor/lib/libstagefrighthw.so
-vendor/lib64/libstagefrighthw.so
-vendor/lib64/libmm-omxcore.so
-vendor/lib64/libOmxAacEnc.so
-vendor/lib64/libOmxAmrEnc.so
-vendor/lib64/libOmxCore.so
-vendor/lib64/libOmxEvrcEnc.so
-vendor/lib64/libOmxG711Enc.so
-vendor/lib64/libOmxQcelp13Enc.so
-vendor/lib64/libplatformconfig.so
 
 # Media (VPU firmware)
 vendor/firmware/vpu20_1v.b00
