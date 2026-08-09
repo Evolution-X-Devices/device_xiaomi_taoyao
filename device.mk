@@ -161,6 +161,9 @@ $(call soong_config_set,camera,package_name,com.android.camera)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/camerax-vendor-extensions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/camerax-vendor-extensions.xml
 
+# Inherit camera proprietary targets
+$(call inherit-product-if-exists, device/xiaomi/taoyao-camera/device.mk)
+
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
