@@ -174,6 +174,11 @@ vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 # Camera
 vendor/bin/loadalgo
 vendor/lib/libcamxexternalformatutils.so
+vendor/lib/libcom.xiaomi.debug.so
+vendor/lib/libcom.xiaomi.grallocutils.so
+vendor/lib/libcom.xiaomi.metadatautils.so
+vendor/lib/libcom.xiaomi.pluginutils.so
+vendor/lib/libmialgoengine.so
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/camera.xiaomi.so
 vendor/lib64/hw/com.qti.chi.override.so

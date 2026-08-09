@@ -209,3 +209,6 @@ include vendor/xiaomi/taoyao/BoardConfigVendor.mk
 
 # Firmware
 include vendor/xiaomi/taoyao-firmware/BoardConfigVendor.mk
+
+# Inherit camera proprietary blobs
+-include device/xiaomi/taoyao-camera/BoardConfig.mk

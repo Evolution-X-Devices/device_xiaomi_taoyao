@@ -80,8 +80,6 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'system/lib64/libion.so', b'vendor/lib64/libion.so'),
     'vendor/etc/camera/taoyao_motiontuning.xml': blob_fixup()
         .regex_replace('xml=version', 'xml version'),
-    'system/lib64/libmicampostproc_client.so': blob_fixup()
-        .remove_needed('libhidltransport.so'),
     ('vendor/lib/hw/audio.primary.lahaina.so', 'vendor/lib/libaudioroute_ext.so'): blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
     # Dolby START
