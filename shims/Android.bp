@@ -13,10 +13,3 @@ cc_library {
     compile_multilib: "both",
     vendor: true,
 }
-
-cc_library_shared {
-    name: "dolbycodec_shim",
-    srcs: ["dolbycodec_shim.cpp"],
-    shared_libs: ["libutils"],
-    device_specific: true,
-}
