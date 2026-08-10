@@ -1,9 +1,3 @@
-type vendor_lib_camera_metadata, file_type, vendor_file_type;
-type vendor_camera_libs, file_type, vendor_file_type;
-
-allow platform_app vendor_hal_soter_hwservice:hwservice_manager find;
-binder_call(platform_app, vendor_hal_soter_qti)
-
 # Incremental
 get_prop(platform_app, incremental_prop)
 # To create files, get permission to fill blocks, and configure Incremental File System
@@ -33,14 +27,35 @@ allowxperm platform_app apk_data_file:file ioctl {
   FS_IOC_GETFLAGS
 };
 
+hal_client_domain(platform_app, vendor_hal_dspmanager)
+hal_client_domain(platform_app_36, vendor_hal_dspmanager)
+
+hal_client_domain(platform_app, vendor_hal_camerapostproc_xiaomi)
+hal_client_domain(platform_app_36, vendor_hal_camerapostproc_xiaomi)
+
 allow platform_app hal_misys_hwservice:hwservice_manager find;
+allow platform_app_36 hal_misys_hwservice:hwservice_manager find;
 binder_call(platform_app, hal_misys_default)
+binder_call(platform_app_36, hal_misys_default)
+
+binder_call(platform_app, hal_camera_default)
+binder_call(platform_app_36, hal_camera_default)
 
 # Soter service
 allow platform_app vendor_hal_soter_hwservice:hwservice_manager find;
+allow platform_app_36 vendor_hal_soter_hwservice:hwservice_manager find;
 binder_call(platform_app, vendor_hal_soter_qti)
+binder_call(platform_app_36, vendor_hal_soter_qti)
 
+allow platform_app public_adsprpcd_file:file { open read getattr };
+allow platform_app_36 public_adsprpcd_file:file { open read getattr };
 allow platform_app app_data_file:file execute;
-allow platform_app vendor_camera_sensor_prop:file { getattr open read map };
+allow platform_app_36 app_data_file:file execute;
 allow platform_app vendor_file:dir watch;
-allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+allow platform_app_36 vendor_file:dir watch;
+allow platform_app vendor_camera_sensor_prop:file { getattr open read map };
+allow platform_app_36 vendor_camera_sensor_prop:file { getattr open read map };
+allow platform_app vendor_qdsp_device:chr_file { open read write ioctl };
+allow platform_app_36 vendor_qdsp_device:chr_file { open read write ioctl };
+allow platform_app vendor_xdsp_device:chr_file { open read write ioctl };
+allow platform_app_36 vendor_xdsp_device:chr_file { open read write ioctl };
