@@ -38,5 +38,10 @@
     "target_path": "vendor/xiaomi/taoyao-camera",
     "remote": "github-non-los",
     "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/vendor_oneplus_dolby",
+    "target_path": "vendor/oneplus/dolby",
+    "remote": "github-non-los"
   }
 ]
