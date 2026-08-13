@@ -4,9 +4,8 @@
     "target_path": "device/xiaomi/taoyao"
   },
   {
-    "repository": "skglab-dev/vendor_xiaomi_taoyao",
+    "repository": "vendor_xiaomi_taoyao",
     "target_path": "vendor/xiaomi/taoyao",
-    "remote": "github-non-los",
     "branch": "lineage-23.2"
   },
   {
