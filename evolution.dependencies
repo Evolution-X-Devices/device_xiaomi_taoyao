@@ -1,7 +1,8 @@
 [
   {
     "repository": "device_xiaomi_taoyao",
-    "target_path": "device/xiaomi/taoyao"
+    "target_path": "device/xiaomi/taoyao",
+    "branch": "lineage-23.2"
   },
   {
     "repository": "vendor_xiaomi_taoyao",
@@ -26,4 +27,16 @@
     "remote": "github-non-los",
     "branch": "lineage-23.2"
   },
+  {
+    "repository": "skglab-dev/device_xiaomi_taoyao-camera",
+    "target_path": "device/xiaomi/taoyao-camera",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/vendor_xiaomi_taoyao-camera",
+    "target_path": "vendor/xiaomi/taoyao-camera",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  }
 ]
