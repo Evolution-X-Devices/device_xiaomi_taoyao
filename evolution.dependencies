@@ -1,0 +1,24 @@
+[
+  {
+    "repository": "device_xiaomi_taoyao",
+    "target_path": "device/xiaomi/taoyao"
+  },
+  {
+    "repository": "skglab-dev/vendor_xiaomi_taoyao",
+    "target_path": "vendor/xiaomi/taoyao",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/kernel_xiaomi_taoyao",
+    "target_path": "kernel/xiaomi/taoyao",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+]
