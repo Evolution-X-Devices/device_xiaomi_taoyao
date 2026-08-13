@@ -42,6 +42,7 @@
   {
     "repository": "skglab-dev/vendor_oneplus_dolby",
     "target_path": "vendor/oneplus/dolby",
-    "remote": "github-non-los"
+    "remote": "github-non-los",
+    "branch": "main"
   }
 ]
