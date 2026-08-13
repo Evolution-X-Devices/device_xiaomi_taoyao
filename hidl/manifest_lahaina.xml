@@ -25,7 +25,7 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<manifest version="1.0" type="device" target-level="6">
+<manifest version="1.0" type="device" target-level="7">
     <!-- CapabilityConfigStore HAL Service  -->
     <hal format="hidl">
         <name>vendor.qti.hardware.capabilityconfigstore</name>
@@ -39,7 +39,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
-        <version>6.0</version>
+        <version>7.0</version>
         <interface>
             <name>IDevicesFactory</name>
             <instance>default</instance>
@@ -48,7 +48,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     <hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport>hwbinder</transport>
-        <version>6.0</version>
+        <version>7.0</version>
         <interface>
             <name>IEffectsFactory</name>
             <instance>default</instance>
@@ -91,28 +91,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <interface>
             <name>IDspService</name>
             <instance>dspservice</instance>
-        </interface>
-    </hal>
-    <!-- WFD HAL Service -->
-    <hal format="hidl" optional="true">
-        <name>vendor.qti.hardware.wifidisplaysession</name>
-        <transport>hwbinder</transport>
-        <version>1.0</version>
-        <interface>
-            <name>IWifiDisplaySession</name>
-            <instance>wifidisplaysession</instance>
-        </interface>
-        <interface>
-            <name>IWifiDisplaySessionVideoTrack</name>
-            <instance>wifidisplaysessionvideotrack</instance>
-        </interface>
-        <interface>
-            <name>IWifiDisplaySessionAudioTrack</name>
-            <instance>wifidisplaysessionaudiotrack</instance>
-        </interface>
-        <interface>
-            <name>IWifiDisplaySessionImageTrack</name>
-            <instance>wifidisplaysessionimagetrack</instance>
         </interface>
     </hal>
     <hal format="hidl">
@@ -510,16 +488,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <interface>
             <name>IPostProcService</name>
             <instance>camerapostprocservice</instance>
-        </interface>
-    </hal>
-
-    <hal format="hidl">
-        <name>android.hardware.camera.provider</name>
-        <transport>hwbinder</transport>
-        <version>2.4</version>
-        <interface>
-            <name>ICameraProvider</name>
-            <instance>legacy/0</instance>
         </interface>
     </hal>
 

@@ -1,0 +1,7 @@
+# DPM
+persist.vendor.dpm.feature=11
+# Dalvik
+dalvik.vm.dex2oat64.enabled=true
+
+# Bluetooth
+persist.vendor.btstack.enable.lpa=true

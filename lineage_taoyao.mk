@@ -7,15 +7,17 @@
 # Inherit from taoyao device
 $(call inherit-product, device/xiaomi/taoyao/device.mk)
 
-# Inherit from common Evolution X configuration
+# Inherit from common LineageOS configuration
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-EVO_BUILD_TYPE := Official
-TARGET_BOOT_ANIMATION_RES := 1080
+# Enable UI enhancements
+TARGET_ENABLE_BLUR := true
+
+# Enable features
+EXTRA_UDFPS_ANIMATIONS := true
 TARGET_HAS_UDFPS := true
-TARGET_INCLUDE_ACCORD := false
-TARGET_DISABLE_EPPE := true
-TARGET_BUILD_APERTURE_CAMERA := false
+TARGET_SUPPORTS_QUICK_TAP := true
+BYPASS_CHARGE_SUPPORTED := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_taoyao
@@ -30,9 +32,9 @@ SystemName := taoyao_global
 SystemDevice := taoyao
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="taoyao_global-user 14 UKQ1.231003.002 V816.0.28.0.ULIMIXM release-keys" \
+    BuildDesc="taoyao_global-user 14 UKQ1.231003.002 V816.0.39.0.ULIEUXM release-keys" \
     DeviceName=$(SystemDevice) \
     DeviceProduct=$(SystemName)
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := Xiaomi/taoyao_global/taoyao:14/UKQ1.231003.002/V816.0.28.0.ULIMIXM:user/release-keys
+BUILD_FINGERPRINT := Xiaomi/taoyao_global/taoyao:14/UKQ1.231003.002/V816.0.39.0.ULIEUXM:user/release-keys

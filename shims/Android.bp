@@ -5,11 +5,11 @@
 //
 
 cc_library {
-    name: "citsensorservice_shim",
-    srcs: ["citsensorservice.c"],
-}
-
-cc_library {
-    name: "wfdservice_shim",
-    srcs: ["wfdservice.c"],
+    name: "libmisightjson_shim",
+    srcs: [
+        "json_value.cpp",
+    ],
+	shared_libs: ["libjsoncpp"],
+    compile_multilib: "both",
+    vendor: true,
 }

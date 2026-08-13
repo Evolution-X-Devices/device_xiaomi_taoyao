@@ -33,7 +33,6 @@ import /vendor/etc/init/hw/init.mi_thermald.rc
 import /vendor/etc/init/hw/init.batterysecret.rc
 
 on early-init
-    exec u:r:vendor_modprobe:s0 -- /vendor/bin/vendor_modprobe.sh
     wait /sys/devices/soc0/soc_id
 
 on init
@@ -69,7 +68,6 @@ on init
 
 on early-fs
     start vold
-    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ cnss2
 
 on fs
     start hwservicemanager
@@ -112,6 +110,9 @@ on post-fs-data
     mkdir /data/vendor/goodix 0770 system system
     mkdir /mnt/vendor/persist/goodix 0770 system system
     mkdir /data/vendor/fpdump 0770 system system
+	
+    # Create ultrasound directory
+    mkdir /data/vendor/audio/ultrasound 0770 audioserver audio
 
 on early-boot
     # Enable WLAN cold boot calibration
@@ -175,6 +176,8 @@ on boot
 on property:sys.boot_completed=1
     # Enable PowerHAL hint processing
     setprop vendor.powerhal.init 1
+    # Only owner can acces this node
+    chmod 440 /proc/net/unix
 
 on init && property:ro.boot.mode=charger
     mount_all /vendor/etc/charger_fstab.qcom --early
@@ -197,6 +200,17 @@ service vendor.pd_mapper /vendor/bin/pd-mapper
     class core
     user system
     group system
+
+# displayfeature
+on boot
+    chown system system /sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/doze_brightness
+    chmod 0777 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/doze_brightness
+    chmod 0777 /sys/class/mi_display/disp-DSI-0/brightness_clone
+    chown system system /sys/class/mi_display/disp-DSI-0/brightness_clone
+    chmod 0777 /dev/mi_display/disp_feature
+    chown system system /dev/mi_display/disp_feature
+    chmod 0777 /sys/class/mi_display/disp-DSI-0/disp_param
+    chown system system /sys/class/mi_display/disp-DSI-0/disp_param
 
 service vendor.per_mgr /vendor/bin/pm-service
     class core
@@ -233,3 +247,7 @@ service citsensor-hal-1-1 /vendor/bin/hw/vendor.xiaomi.hardware.citsensorservice
 on property:sys.boot_completed=1
     # Only owner can acces this node
     chmod 440 /proc/net/unix
+
+on property:sys.boot_completed=1
+    # STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOU
+    stop statsd

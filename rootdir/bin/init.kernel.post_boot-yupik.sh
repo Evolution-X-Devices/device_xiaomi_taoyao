@@ -34,8 +34,6 @@ function configure_zram_parameters() {
 	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
 	MemTotal=${MemTotalStr:16:8}
 
-	low_ram=`getprop ro.config.low_ram`
-
 	# Zram disk - 75% for Go and < 2GB devices .
 	# For >2GB Non-Go devices, size = 50% of RAM size. Limit the size to 4GB.
 	# And enable lz4 zram compression for Go targets.
@@ -53,9 +51,7 @@ function configure_zram_parameters() {
 		let zRamSizeMB=4096
 	fi
 
-	if [ "$low_ram" == "true" ]; then
-		echo lz4 > /sys/block/zram0/comp_algorithm
-	fi
+	echo lz4kd > /sys/block/zram0/comp_algorithm
 
 	if [ -f /sys/block/zram0/disksize ]; then
 		if [ -f /sys/block/zram0/use_dedup ]; then
@@ -78,18 +74,9 @@ function configure_zram_parameters() {
 }
 
 function configure_read_ahead_kb_values() {
-	MemTotalStr=`cat /proc/meminfo | grep MemTotal`
-	MemTotal=${MemTotalStr:16:8}
-
 	dmpts=$(ls /sys/block/*/queue/read_ahead_kb | grep -e dm -e mmc)
+	ra_kb=128
 
-	# Set 128 for <= 3GB &
-	# set 512 for >= 4GB targets.
-	if [ $MemTotal -le 3145728 ]; then
-		ra_kb=128
-	else
-		ra_kb=512
-	fi
 	if [ -f /sys/block/mmcblk0/bdi/read_ahead_kb ]; then
 		echo $ra_kb > /sys/block/mmcblk0/bdi/read_ahead_kb
 	fi
@@ -125,7 +112,7 @@ function configure_memory_parameters() {
 
 	configure_zram_parameters
 	configure_read_ahead_kb_values
-	echo 100 > /proc/sys/vm/swappiness
+	echo 60 > /proc/sys/vm/swappiness
 
         # Disable wsf  beacause we are using efk.
         # wsf Range : 1..1000. So set to bare minimum value 1.
@@ -137,8 +124,8 @@ function configure_memory_parameters() {
 		echo 0 > /proc/sys/vm/watermark_boost_factor
 	fi
 
-	#Spawn 2 kswapd threads which can help in fast reclaiming of pages
-	echo 2 > /proc/sys/vm/kswapd_threads
+	#Spawn kswapd threads which can help in fast reclaiming of pages
+	echo 1 > /proc/sys/vm/kswapd_threads
 }
 
 rev=`cat /sys/devices/soc0/revision`
@@ -186,8 +173,10 @@ echo 1 > /proc/sys/kernel/sched_walt_rotate_big_tasks
 echo 0 > /proc/sys/kernel/sched_coloc_busy_hysteresis_enable_cpus
 
 # cpuset parameters
-echo 0-3 > /dev/cpuset/background/cpus
-echo 0-3 > /dev/cpuset/system-background/cpus
+echo 0-1 > /dev/cpuset/background/cpus
+echo 0-3 > /dev/cpuset/restricted/cpus
+echo 0-2 > /dev/cpuset/system-background/cpus
+echo 0-6 > /dev/cpuset/foreground/cpus
 
 # configure governor settings for silver cluster
 echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
@@ -195,7 +184,7 @@ echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/down_rate_limit_us
 echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/up_rate_limit_us
 echo 1152000 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq
 echo 691200 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-echo 0 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
+echo 1 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/pl
 
 # configure input boost settings
 echo "0:1324800" > /sys/devices/system/cpu/cpu_boost/input_boost_freq
@@ -212,7 +201,7 @@ echo -6 > /sys/devices/system/cpu/cpu4/sched_load_boost
 echo -6 > /sys/devices/system/cpu/cpu5/sched_load_boost
 echo -6 > /sys/devices/system/cpu/cpu6/sched_load_boost
 echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/rtg_boost_freq
-echo 0 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
+echo 1 > /sys/devices/system/cpu/cpufreq/policy4/schedutil/pl
 
 # configure governor settings for gold+ cluster
 echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
@@ -223,7 +212,7 @@ echo 806400 > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 echo 85 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/hispeed_load
 echo -6 > /sys/devices/system/cpu/cpu7/sched_load_boost
 echo 0 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/rtg_boost_freq
-echo 0 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/pl
+echo 1 > /sys/devices/system/cpu/cpufreq/policy7/schedutil/pl
 
 # colocation V3 settings
 echo 691200 > /sys/devices/system/cpu/cpufreq/policy0/schedutil/rtg_boost_freq
@@ -350,8 +339,8 @@ do
 	done
 done
 
-# set s2idle as default suspend mode
-echo s2idle > /sys/power/mem_sleep
+# set deep as default suspend mode
+echo deep > /sys/power/mem_sleep
 
 configure_memory_parameters
 
