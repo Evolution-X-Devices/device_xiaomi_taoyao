@@ -101,7 +101,8 @@ PRODUCT_COPY_FILES += \
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
 PRODUCT_PACKAGES += \
-    DSPVolumeSynchronizer
+    DSPVolumeSynchronizer \
+    LunarisDolby
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -126,8 +127,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     libutilscallstack.vendor \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service_64 \
+    android.hardware.camera.provider-service.lineage \
     libcamera_metadata.vendor \
     android.hardware.graphics.common-V4-ndk \
     vendor.qti.hardware.camera.device@1.0.vendor \
@@ -185,9 +185,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     hardware/qcom-caf/sm8350/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
-
-# Dolby
-$(call inherit-product, hardware/dolby/dolby.mk)
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -569,3 +566,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink \
     firmware_WCNSS_qcom_cfg_qca6750.ini_symlink
+
+# OnePlus Dolby
+$(call inherit-product, vendor/oneplus/dolby/dolby.mk)
