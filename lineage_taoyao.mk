@@ -19,6 +19,8 @@ TARGET_HAS_UDFPS := true
 TARGET_SUPPORTS_QUICK_TAP := true
 BYPASS_CHARGE_SUPPORTED := true
 
+TARGET_INCLUDES_DolbyVision := true
+
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_taoyao
 PRODUCT_DEVICE := taoyao
