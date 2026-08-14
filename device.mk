@@ -101,7 +101,8 @@ PRODUCT_COPY_FILES += \
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
 PRODUCT_PACKAGES += \
-    DSPVolumeSynchronizer
+    DSPVolumeSynchronizer \
+    LunarisDolby
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -188,7 +189,6 @@ PRODUCT_COPY_FILES += \
 
 # Dolby
 $(call inherit-product, hardware/dolby/dolby.mk)
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
@@ -569,3 +569,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink \
     firmware_WCNSS_qcom_cfg_qca6750.ini_symlink
+
+# OnePlus Dolby
+$(call inherit-product, vendor/oneplus/dolby/dolby.mk)

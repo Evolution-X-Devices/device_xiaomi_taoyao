@@ -1,0 +1,48 @@
+[
+  {
+    "repository": "device_xiaomi_taoyao",
+    "target_path": "device/xiaomi/taoyao",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "vendor_xiaomi_taoyao",
+    "target_path": "vendor/xiaomi/taoyao",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/vendor_xiaomi_taoyao-firmware",
+    "target_path": "vendor/xiaomi/taoyao-firmware",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/kernel_xiaomi_taoyao",
+    "target_path": "kernel/xiaomi/taoyao",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/device_xiaomi_taoyao-camera",
+    "target_path": "device/xiaomi/taoyao-camera",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/vendor_xiaomi_taoyao-camera",
+    "target_path": "vendor/xiaomi/taoyao-camera",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/vendor_oneplus_dolby",
+    "target_path": "vendor/oneplus/dolby",
+    "remote": "github-non-los",
+    "branch": "main"
+  }
+]

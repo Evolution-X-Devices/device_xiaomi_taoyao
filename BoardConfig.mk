@@ -67,11 +67,13 @@ DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml \
+    vendor/oneplus/dolby/vintf/dolby_framework_compatibility_matrix.xml
 
 DEVICE_MANIFEST_FILE += \
     $(DEVICE_PATH)/hidl/manifest_lahaina.xml \
     $(DEVICE_PATH)/hidl/manifest_taoyao.xml \
-    $(DEVICE_PATH)/hidl/manifest_xiaomi.xml
+    $(DEVICE_PATH)/hidl/manifest_xiaomi.xml \
+    vendor/oneplus/dolby/vintf/dolby_manifest.xml
 
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/hidl/c2_manifest_vendor.xml
 
@@ -212,3 +214,6 @@ include vendor/xiaomi/taoyao-firmware/BoardConfigVendor.mk
 
 # Inherit camera proprietary blobs
 -include device/xiaomi/taoyao-camera/BoardConfig.mk
+
+# OnePlus Dolby
+include vendor/oneplus/dolby/BoardConfigDolby.mk
