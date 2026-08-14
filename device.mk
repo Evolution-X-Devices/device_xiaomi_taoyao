@@ -100,6 +100,9 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set_bool,android_hardware_audio,skip_speaker_layout_channel_mask_field,true)
 
+PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     audio.bluetooth.default
@@ -165,9 +168,6 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
-    DSPVolumeSynchronizer \
-    XiaomiDolby \
-    XiaomiDolbyResTaoyao \
     XiaomiParts
 
 # Display
@@ -185,9 +185,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     hardware/qcom-caf/sm8350/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
-
-# Dolby Vision
-$(call soong_config_set, dolby_vision, enabled, true)
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -319,8 +316,7 @@ $(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,fal
 # Media
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/init.qti.media.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.qti.media.sh \
-    $(LOCAL_PATH)/media/init.qti.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.qti.media.rc \
-    $(LOCAL_PATH)/media/media_codecs_c2_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2_dolby_audio.xml
+    $(LOCAL_PATH)/media/init.qti.media.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.qti.media.rc
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/media/lahaina/media_codecs_lahaina.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_lahaina.xml \
