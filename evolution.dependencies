@@ -1,0 +1,53 @@
+[
+  {
+    "repository": "device_xiaomi_taoyao",
+    "target_path": "device/xiaomi/taoyao",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "vendor_xiaomi_taoyao",
+    "target_path": "vendor/xiaomi/taoyao",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "hardware_xiaomi",
+    "target_path": "hardware/xiaomi",
+    "branch": "bka-no-dsp"
+  },
+  {
+    "repository": "skglab-dev/kernel_xiaomi_taoyao",
+    "target_path": "kernel/xiaomi/taoyao",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/device_xiaomi_taoyao-camera",
+    "target_path": "device/xiaomi/taoyao-camera",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/vendor_xiaomi_taoyao-camera",
+    "target_path": "vendor/xiaomi/taoyao-camera",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "skglab-dev/vendor_xiaomi_taoyao-firmware",
+    "target_path": "vendor/xiaomi/taoyao-firmware",
+    "remote": "github-non-los",
+    "branch": "lineage-23.2"
+  },
+  {
+    "repository": "swiitch-OFF-Lab/hardware_dolby",
+    "target_path": "hardware/dolby",
+    "remote": "github-non-los",
+    "branch": "Dolby-Vision-2.0"
+  },
+  {
+    "repository": "skglab-dev/packages_apps_LunarisDolby",
+    "target_path": "packages/apps/LunarisDolby",
+    "remote": "github-non-los",
+    "branch": "16.0"
+  }
+]
