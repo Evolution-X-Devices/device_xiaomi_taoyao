@@ -15,7 +15,7 @@
     "branch": "bka-no-dsp"
   },
   {
-    "repository": "skglab-dev/kernel_xiaomi_taoyao",
+    "repository": "ammarbahtiarasli/kernel_xiaomi_taoyao",
     "target_path": "kernel/xiaomi/taoyao",
     "remote": "github-non-los",
     "branch": "lineage-23.2"
