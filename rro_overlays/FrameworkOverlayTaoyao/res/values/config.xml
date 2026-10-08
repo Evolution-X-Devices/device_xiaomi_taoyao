@@ -145,7 +145,7 @@
     <!-- Minimum screen brightness setting allowed by power manager.
          The user is forbidden from setting the brightness below this level.
          Equivalent to 1/255. -->
-    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0</item>
+    <item name="config_screenBrightnessSettingMinimumFloat" format="float" type="dimen">0.0023</item>
 
     <!-- Maximum screen brightness allowed by the power manager.
          The user is forbidden from setting the brightness above this level.  -->
@@ -673,8 +673,8 @@
      <!-- Screen brightness used to dim the screen when the user activity
           timeout expires.  May be less than the minimum allowed brightness setting
           that can be set by the user. -->
-     <integer name="config_screenBrightnessDim">1</integer>
-     <item type="dimen" name="config_screenBrightnessDimFloat">-2.0</item>
+     <integer name="config_screenBrightnessDim">2</integer>
+     <item type="dimen" name="config_screenBrightnessDimFloat">0.0023</item>
 
      <!-- The bounding path of the cutout region of the main built-in display.
           Must either be empty if there is no cutout region, or a string that is parsable by
