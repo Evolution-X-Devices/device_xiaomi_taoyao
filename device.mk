@@ -569,3 +569,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink \
     firmware_WCNSS_qcom_cfg_qca6750.ini_symlink
+
+# LunarisDolby
+PRODUCT_PACKAGES += \
+    LunarisDolby
