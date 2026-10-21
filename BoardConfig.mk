@@ -102,7 +102,6 @@ BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 # Workaround to make lineage's soong generator work
 TARGET_KERNEL_CONFIG := taoyao_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/taoyao
-TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_VERSION := 5.4
 TARGET_KERNEL_CLANG_VERSION := r563880c
 
