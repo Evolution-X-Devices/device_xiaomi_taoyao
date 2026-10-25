@@ -49,40 +49,17 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-    'vendor/etc/init/vendor.xiaomi.hardware.citsensorservice@1.1-service.rc': blob_fixup()
-        .add_line_if_missing('    task_profiles ServiceCapacityLow'),
+    'system/framework/WfdCommon.jar': blob_fixup()
+        .apktool_patch('blob-patches/WfdCommon.patch'),
+    'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so'),
     ('vendor/etc/media_lahaina/video_system_specs.json', 'vendor/etc/media_shima_v1/video_system_specs.json', 'vendor/etc/media_yupik_v1/video_system_specs.json'): blob_fixup()
         .regex_replace('"max_retry_alloc_output_timeout": 10000,', '"max_retry_alloc_output_timeout": 0,'),
     ('vendor/lib64/mediadrm/libwvdrmengine.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
         .add_needed('libcrypto_shim.so'),
     'vendor/lib64/android.hardware.secure_element@1.0-impl.so': blob_fixup()
         .remove_needed('android.hidl.base@1.0.so'),
-    'vendor/lib64/libmisight.so': blob_fixup()
-        .add_needed('libjsoncpp_shim.so')
-        .add_needed('libmisightjson_shim.so'),
-    ('vendor/lib64/mediadrm/libwvdrmengine.so', 'vendor/lib64/libwvhidl.so'): blob_fixup()
-         .add_needed('libcrypto_shim.so'),
-    ('vendor/etc/camera/pureShot_parameter.xml', 'vendor/etc/camera/pureView_parameter.xml'): blob_fixup()
-        .regex_replace(r'=(\d+)>', r'="\1">'),
-    'vendor/lib64/hw/camera.qcom.so': blob_fixup()
-        .binary_regex_replace(b'\x73\x74\x5F\x6C\x69\x63\x65\x6E\x73\x65\x2E\x6C\x69\x63', b'\x63\x61\x6D\x65\x72\x61\x5F\x63\x6E\x66\x2E\x74\x78\x74')
-        .replace_needed('libmegface.so', 'libmegface_xiaomi.so')
-        .add_needed('libprocessgroup_shim.so'),
-    'vendor/lib64/hw/camera.xiaomi.so': blob_fixup()
-        .sig_replace('29 07 00 94', '1F 20 03 D5'),
-    'vendor/lib64/libMegviiFacepp-0.5.2.so': blob_fixup()
-        .replace_needed('libmegface.so', 'libmegface_xiaomi.so'),
-    'vendor/lib64/hw/com.qti.chi.override.so': blob_fixup()
-        .add_needed('libprocessgroup_shim.so')
-        .binary_regex_replace(b'system/lib64/libion.so', b'vendor/lib64/libion.so'),
-    'vendor/etc/camera/taoyao_motiontuning.xml': blob_fixup()
-        .regex_replace('xml=version', 'xml version'),
-    ('vendor/lib/hw/audio.primary.lahaina.so', 'vendor/lib/libaudioroute_ext.so'): blob_fixup()
-        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
-    (
-        'vendor/lib64/libdpps.so',
-        'vendor/lib64/libsnapdragoncolor-manager.so',
-    ): blob_fixup()
+    ('vendor/lib64/libdpps.so', 'vendor/lib64/libsnapdragoncolor-manager.so'): blob_fixup()
         .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 }  # fmt: skip
 
