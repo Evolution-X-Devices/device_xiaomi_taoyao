@@ -70,11 +70,17 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/xiaomi/vintf/xiaomi_framework_compatibility_matrix.xml 
 
 DEVICE_MANIFEST_FILE += \
+    $(COMMON_PATH)/hidl/manifest_keymint_rkp.xml \  
     $(DEVICE_PATH)/hidl/manifest_lahaina.xml \
     $(DEVICE_PATH)/hidl/manifest_taoyao.xml \
     $(DEVICE_PATH)/hidl/manifest_xiaomi.xml
 
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/hidl/c2_manifest_vendor.xml
+
+ifeq ($(TARGET_HAS_UDFPS),true)
+DEVICE_MANIFEST_FILE += \
+    $(COMMON_PATH)/hidl/manifest_udfps.xml
+endif
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
@@ -158,7 +164,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+VENDOR_SECURITY_PATCH := 2026-08-01
 
 # SELinux
 include device/lineage/sepolicy/libion/sepolicy.mk
