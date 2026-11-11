@@ -15,10 +15,10 @@
     "branch": "bka-no-dsp"
   },
   {
-    "repository": "ammarbahtiarasli/kernel_xiaomi_taoyao",
+    "repository": "taoyao-labs/kernel_xiaomi_taoyao",
     "target_path": "kernel/xiaomi/taoyao",
     "remote": "github-non-los",
-    "branch": "arunika"
+    "branch": "lineage-24.0"
   },
   {
     "repository": "skglab-dev/device_xiaomi_taoyao-camera",
